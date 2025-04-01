@@ -1,13 +1,13 @@
 flutter_native_splash:
   color: "#FFFFFF"
-  image: assets/images/3X/Quran-Light -3X.jpg
-  branding: assets/images/Branding-Light.jpg
+  image: assets/images/MainScreen_Light.png
+  branding: assets/images/Logo_Light.png
   color_dark: "#1C1C1C"
-  image_dark: assets/images/3X/Quran-Dark -3X.jpg
-  branding_dark: assets/images/Branding-Dark.jpg
+  image_dark: assets/images/MainScreen_Dark.png
+  branding_dark: assets/images/Logo_Dark.png
 
   android_12:
-    image: assets/images/3X/Quran-Light -3X.jpg
+    image: assets/images/MainScreen_Light.png
     icon_background_color: "#FFFFFF"
-    image_dark: assets/images/3X/Quran-Dark -3X.jpg
+    image_dark: assets/images/MainScreen_Dark.png
     icon_background_color_dark: "#1C1C1C"
