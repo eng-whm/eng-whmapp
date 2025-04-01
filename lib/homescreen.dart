@@ -5,18 +5,6 @@ class Homescreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.brown,
-        title: Text(
-          'Quran App',
-          style: TextStyle(
-            color: Colors.white,
-            fontSize: 35.0,
-            fontWeight: FontWeight.bold,
-          ),
-        ),
-      ),
-    );
+    return Scaffold(appBar: AppBar(title: Text('Quran App')));
   }
 }
