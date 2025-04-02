@@ -12,48 +12,49 @@ class Homescreen extends StatefulWidget {
 
 class _HomescreenState extends State<Homescreen> {
 
-  int selectedIndex = 0;
+  int selectedIndedx = 0;
 
   @override
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        Image.asset('assets/images/BigSize_Updated.png',
-        width: double.infinity,
-        height: double.infinity,
-        fit: BoxFit.fill,
-        ),
+        Image.asset(
+          'assets/images/BigSize_Updated.png',
+          width: double.infinity,
+          height: double.infinity,
+          fit: BoxFit.fill,
+          ),
         Scaffold(
           appBar: AppBar(
-            title: Text('Quran App',style: Theme.of(context).textTheme.bodyLarge),
+            title: Text('Quran App 2025', style: Theme.of(context).textTheme.bodyLarge),
           ),
           bottomNavigationBar: Theme(
             data: Theme.of(context).copyWith(
-              canvasColor: Theme.of(context).primaryColorLight
+              primaryColor: Theme.of(context).primaryColorLight,
             ),
-            child: BottomNavigationBar(items: 
-            [
-              BottomNavigationBarItem(icon: ImageIcon(AssetImage('assets/images/Quran.png'),),label: 'Quran'),
-              BottomNavigationBarItem(icon: ImageIcon(AssetImage('assets/images/Hadeth.png'),),label: 'Hadeth'),
-              BottomNavigationBarItem(icon: ImageIcon(AssetImage('assets/images/Sebha.png'),),label: 'Sebha')
-            ],
-            currentIndex: selectedIndex,
-            onTap: (index){
-              selectedIndex = index;
-              setState(() {
-                
-              });
-            },
+            child: BottomNavigationBar(
+              items: [
+                BottomNavigationBarItem(icon: ImageIcon(AssetImage('assets/images/Quran.png'),), label: 'Quran'),
+                BottomNavigationBarItem(icon: ImageIcon(AssetImage('assets/images/Sebha.png'),), label: 'Sebha'),
+                BottomNavigationBarItem(icon: ImageIcon(AssetImage('assets/images/Hadeth.png'),), label: 'Hadeth'),
+              ],
+              currentIndex: selectedIndedx,
+              onTap: (index) {
+                selectedIndedx = index;
+                setState(() {});
+              },
             ),
           ),
-          body: tabs[selectedIndex],
+          body: tabs[selectedIndedx],
         )
       ],
     );
   }
-      List <Widget> tabs = [
-      QuranTab(),
-      HadethTab(),
-      SebhaTab(),
-    ];
+
+  List <Widget> tabs = [
+    QuranTab(),
+    SebhaTab(),
+    HadethTab(),
+  ];
+  
 }

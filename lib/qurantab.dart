@@ -5,8 +5,9 @@ class QuranTab extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: Colors.red,
+    return Center(
+      child: 
+        Text('Quran Tab', style: Theme.of(context).textTheme.bodyLarge)
     );
   }
 }
