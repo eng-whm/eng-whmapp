@@ -5,8 +5,9 @@ class HadethTab extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: Colors.green,
+    return Center(
+      child: 
+        Text('Hadeth Tab', style: Theme.of(context).textTheme.bodyLarge)
     );
   }
 }
