@@ -10,8 +10,7 @@ class SouranDetailsName extends StatefulWidget {
 }
 
 class _SouranDetailsNameState extends State<SouranDetailsName> {
-
-  List <String> verses = [];
+  List<String>verses = [];
 
   @override
   Widget build(BuildContext context) {
@@ -20,20 +19,16 @@ class _SouranDetailsNameState extends State<SouranDetailsName> {
     if (verses.isEmpty){
       loadFiles(args.index);
     }
+
     return Stack(
       children: [
-        Image.asset(
-          'assets/images/BigSize_Updated.png',
-          width: double.infinity,
-          height: double.infinity,
-          fit: BoxFit.fill,
-        ),
+        Image.asset('assets/images/BigSize_Updated.png',
+        width: double.infinity,
+        height: double.infinity,
+        fit: BoxFit.fill,),
         Scaffold(
           appBar: AppBar(
-            title: Text(
-              args.name,
-              style: Theme.of(context).textTheme.bodyLarge,
-            ),
+            title: Text(args.name, style: Theme.of(context).textTheme.bodyLarge,),
           ),
           body: verses.isEmpty?
           Center(
@@ -43,17 +38,17 @@ class _SouranDetailsNameState extends State<SouranDetailsName> {
           ):
           ListView.builder(itemBuilder: (context, index){
             return Itemsouracontent(content: verses[index]);
-            },
+          },
           itemCount: verses.length,),
-        ),
-      ],
-    );
+          
+          ),
+      ]
+        );
   }
 
-  void loadFiles(int index)async {
+  void loadFiles(int index)async{
     String content = await rootBundle.loadString('assets/files/${index+1}.txt');
-    content.split('\n');
-    List <String> lines = content.split('\n');
+    List<String>lines = content.split('\n');
     verses = lines;
     setState(() {
       
@@ -61,7 +56,8 @@ class _SouranDetailsNameState extends State<SouranDetailsName> {
   }
 }
 
-class SouraDetailsArgs {
+
+class SouraDetailsArgs{
   String name;
   int index;
   SouraDetailsArgs({required this.name, required this.index});

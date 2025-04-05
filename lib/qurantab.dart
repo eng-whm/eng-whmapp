@@ -1,10 +1,9 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:quranapp2025/appcolor.dart';
 import 'package:quranapp2025/itemsouraname.dart';
 
-class QuranTab extends StatelessWidget {
+class Qurantab extends StatelessWidget {
+
   List<String> souranames = [
     "الفاتحة",
     "البقرة",
@@ -122,29 +121,35 @@ class QuranTab extends StatelessWidget {
     "الناس",
   ];
 
+
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
         Image.asset('assets/images/Quran_V2.png'),
-        Divider(color: AppColor.primaryColor, thickness: 3.0),
-        Text(
-          'Soura Name',
-          style: Theme.of(context).textTheme.bodyMedium,
-          textAlign: TextAlign.center,
+        Divider(
+          color: AppColor.primaryColor,
+          thickness: 3.0,
         ),
-        Divider(color: AppColor.primaryColor, thickness: 3.0),
+        Text('Soura Name', style: Theme.of(context).textTheme.bodyMedium,),
+        Divider(
+          color: AppColor.primaryColor,
+          thickness: 3.0,
+        ),
         Expanded(
           child: ListView.separated(
             separatorBuilder: (context, index) {
-              return Divider(color: AppColor.primaryColor, thickness: 1.0);
+              return         Divider(
+          color: AppColor.primaryColor,
+          thickness: 2.0,
+        );
             },
-            itemBuilder: (context, index) {
-              return ItemSouraName(name: souranames[index], index: index,);
-            },
-            itemCount: souranames.length,
+            itemBuilder: (context, index){
+            return ItemSouraName(name: souranames[index], index: index,);
+          },
+          itemCount: souranames.length,
           ),
-        ),
+        )
       ],
     );
   }

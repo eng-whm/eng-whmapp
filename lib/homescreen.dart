@@ -3,58 +3,50 @@ import 'package:quranapp2025/hadethtab.dart';
 import 'package:quranapp2025/qurantab.dart';
 import 'package:quranapp2025/sebhatab.dart';
 
-class Homescreen extends StatefulWidget {
-  const Homescreen({super.key});
+class HomeScreen extends StatefulWidget {
 
   @override
-  State<Homescreen> createState() => _HomescreenState();
+  State<HomeScreen> createState() => _HomeScreenState();
 }
 
-class _HomescreenState extends State<Homescreen> {
+class _HomeScreenState extends State<HomeScreen> {
 
-  int selectedIndedx = 0;
+  List <Widget> tabs = [Qurantab(),HadethTab(), SebhaTab()];
+
+  int selectedIndex = 0;
 
   @override
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        Image.asset(
-          'assets/images/BigSize_Updated.png',
-          width: double.infinity,
-          height: double.infinity,
-          fit: BoxFit.fill,
-          ),
+        Image.asset('assets/images/BigSize_Updated.png',
+        width: double.infinity,
+        height: double.infinity,
+        fit: BoxFit.fill,),
         Scaffold(
           appBar: AppBar(
-            title: Text('Quran App 2025', style: Theme.of(context).textTheme.bodyLarge),
+            title: Text('Quran App', style: Theme.of(context).textTheme.bodyLarge,),
           ),
           bottomNavigationBar: Theme(
             data: Theme.of(context).copyWith(
               primaryColor: Theme.of(context).primaryColorLight,
             ),
-            child: BottomNavigationBar(
-              items: [
-                BottomNavigationBarItem(icon: ImageIcon(AssetImage('assets/images/Quran.png'),), label: 'Quran'),
-                BottomNavigationBarItem(icon: ImageIcon(AssetImage('assets/images/Sebha.png'),), label: 'Sebha'),
-                BottomNavigationBarItem(icon: ImageIcon(AssetImage('assets/images/Hadeth.png'),), label: 'Hadeth'),
-              ],
-              currentIndex: selectedIndedx,
-              onTap: (index) {
-                selectedIndedx = index;
-                setState(() {});
-              },
-            ),
+            child: BottomNavigationBar(items: [
+              BottomNavigationBarItem(icon: ImageIcon(AssetImage('assets/images/Quran.png')),label: 'Quran'),
+              BottomNavigationBarItem(icon: ImageIcon(AssetImage('assets/images/Quran.png')),label: 'Hadeth'),
+              BottomNavigationBarItem(icon: ImageIcon(AssetImage('assets/images/Quran.png')),label: 'Sebha')
+            ],
+            currentIndex: selectedIndex,
+            onTap: (index){
+              selectedIndex = index;
+              setState(() {
+                
+              });
+            },),
           ),
-          body: tabs[selectedIndedx],
-        )
+          body: tabs[selectedIndex],
+        ),
       ],
     );
-  }
-
-  List <Widget> tabs = [
-    QuranTab(),
-    SebhaTab(),
-    HadethTab(),
-  ];
-  
+}
 }
